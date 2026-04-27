@@ -1,0 +1,677 @@
+/* ===== FIXES: Philosophy visibility ===== */
+.philosophy.fade-in {
+    opacity: 1;
+    transform: none;
+}
+.philosophy.fade-in:not(.visible) {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* ===== FIXES: Section label centering ===== */
+.section-label {
+    display: block;
+    text-align: center;
+}
+
+/* ===== FIXES: Container max-width ===== */
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ===== FIXES: Section padding consistency ===== */
+.section {
+    padding: 5rem 0;
+}
+
+.private-dining,
+.signature-experience {
+    padding: 5rem 0;
+}
+
+.private-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-lg);
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.private-cta,
+.menu-cta {
+    text-align: center;
+    margin-top: var(--space-xl);
+}
+
+/* ===== FIXES: Gallery items (was gallery-card, now gallery-item) ===== */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    aspect-ratio: 1;
+    background: var(--color-surface-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+    transition: all var(--transition-medium);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-gold);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.gallery-item i {
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    opacity: 0.8;
+    transition: all var(--transition-medium);
+}
+
+.gallery-item:hover i {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.gallery-label {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: var(--weight-medium);
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 0 var(--space-sm);
+}
+
+/* ===== FIXES: Experience icon with Remix Icons ===== */
+.experience-icon {
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+}
+
+.experience-icon i {
+    font-size: 3rem;
+    color: var(--color-accent);
+    line-height: 1;
+}
+
+/* ===== FIXES: Private card icons ===== */
+.private-card i {
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+    display: block;
+}
+
+/* ===== FIXES: Achievement pill icons ===== */
+.achievement-pill i {
+    margin-right: 0.4rem;
+    color: var(--color-accent);
+}
+
+/* ===== FIXES: Transport icon sizing ===== */
+.transport-icon i {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+}
+
+/* ===== FIXES: Map placeholder ===== */
+.map-pin {
+    margin-bottom: var(--space-md);
+}
+
+.map-pin i {
+    font-size: 3rem;
+    color: var(--color-accent);
+}
+
+.map-placeholder::before {
+    content: none;
+}
+
+.map-link {
+    margin-top: var(--space-sm);
+}
+
+/* ===== FIXES: Button overlap - hero CTA ===== */
+.hero-cta {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-xl);
+}
+
+.hero-cta .btn {
+    min-width: 200px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ===== FIXES: btn-block for reservation ===== */
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* ===== FIXES: Testimonial quote mark ===== */
+.testimonial-quote {
+    font-size: 4rem;
+    color: var(--color-accent);
+    opacity: 0.3;
+    font-family: var(--font-heading);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+}
+
+/* ===== FIXES: Info divider ===== */
+.info-divider {
+    height: 1px;
+    background: var(--color-border);
+    margin: var(--space-md) 0;
+}
+
+/* ===== FIXES: Info title ===== */
+.info-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-lg);
+    color: var(--color-accent);
+}
+
+/* ===== FIXES: Address title ===== */
+.address-title {
+    font-size: 1.8rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
+}
+
+.address-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+}
+
+.location-note {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: var(--space-lg);
+}
+
+/* ===== FIXES: Info note paragraph spacing ===== */
+.info-note p {
+    margin-bottom: var(--space-xs);
+    font-size: 0.9rem;
+}
+
+.info-note p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== FIXES: Chef section content alignment ===== */
+.chef-content .section-title {
+    text-align: left;
+}
+
+.chef-content .section-title::after {
+    margin: var(--space-sm) 0;
+}
+
+.chef-content .section-label {
+    text-align: left;
+}
+
+/* ==============================
+   RESPONSIVE: 1024px (Tablet landscape)
+   ============================== */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 100%;
+        padding: 0 2rem;
+    }
+
+    .section {
+        padding: 4rem 0;
+    }
+
+    .private-dining,
+    .signature-experience {
+        padding: 4rem 0;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
+    }
+
+    .hero-cta {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .hero-cta .btn {
+        min-width: 180px;
+    }
+
+    .chef-content .section-title {
+        text-align: center;
+    }
+
+    .chef-content .section-title::after {
+        margin: var(--space-sm) auto;
+    }
+
+    .chef-content .section-label {
+        text-align: center;
+    }
+
+    .chef-bio {
+        text-align: center;
+    }
+
+    .chef-achievements {
+        justify-content: center;
+    }
+
+    /* Navbar fixes for tablet landscape */
+    .nav-container {
+        padding: 0 2rem;
+    }
+
+    .nav-logo a {
+        white-space: nowrap;
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .nav-cta .btn-reserve {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+}
+
+/* ==============================
+   RESPONSIVE: 768px (Tablet portrait)
+   ============================== */
+@media (max-width: 768px) {
+    /* Hide main nav links and CTA */
+    .nav-links,
+    .nav-cta {
+        display: none !important;
+    }
+
+    .hamburger {
+        display: block !important;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .private-dining,
+    .signature-experience {
+        padding: 3rem 0;
+    }
+
+    /* Hero fixes */
+    .hero {
+        padding: var(--space-xl) var(--space-sm);
+        min-height: 100vh;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-sm);
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        max-width: 280px;
+        min-width: unset;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-xs);
+    }
+
+    .stat-pill {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    /* Gallery responsive */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-sm);
+    }
+
+    .gallery-item {
+        aspect-ratio: 1;
+    }
+
+    .gallery-item i {
+        font-size: 2rem;
+    }
+
+    .gallery-label {
+        font-size: 0.85rem;
+    }
+
+    /* Private dining */
+    .private-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .private-subtitle {
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    /* Reservation */
+    .reservation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reservation-form {
+        padding: var(--space-lg);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: var(--space-sm);
+    }
+
+    /* Location */
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .location-map {
+        height: 250px;
+    }
+
+    /* Testimonials */
+    .testimonial-slide {
+        padding: var(--space-md);
+    }
+
+    .testimonial-text {
+        font-size: 1rem;
+    }
+
+    .testimonial-text::before,
+    .testimonial-text::after {
+        font-size: 2rem;
+    }
+
+    .testimonial-text::before {
+        top: -10px;
+        left: 0;
+    }
+
+    .testimonial-text::after {
+        bottom: -20px;
+        right: 0;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    .footer-column {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column a {
+        align-self: center;
+    }
+
+    .newsletter {
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        margin: var(--space-md) auto 0;
+    }
+
+    .newsletter button {
+        width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer {
+        padding: var(--space-xl) 0 var(--space-lg);
+    }
+
+    /* Chef */
+    .chef-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chef-visual {
+        order: -1;
+    }
+
+    /* Experience */
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Menu */
+    .menu-tabs {
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+    }
+
+    .tab-btn {
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Info item stacking */
+    .info-item {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .info-value {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==============================
+   RESPONSIVE: 480px (Small mobile)
+   ============================== */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .section {
+        padding: 2.5rem 0;
+    }
+
+    .private-dining,
+    .signature-experience {
+        padding: 2.5rem 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-label {
+        font-size: 0.75rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .gallery-item {
+        aspect-ratio: 1;
+    }
+
+    .gallery-item i {
+        font-size: 1.5rem;
+    }
+
+    .gallery-label {
+        font-size: 0.75rem;
+        letter-spacing: 0;
+    }
+
+    .experience-card {
+        padding: var(--space-md);
+    }
+
+    .experience-icon i {
+        font-size: 2.5rem;
+    }
+
+    .private-card {
+        padding: var(--space-md);
+    }
+
+    .private-card i {
+        font-size: 2rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-logo {
+        font-size: 1.75rem;
+    }
+
+    .newsletter {
+        flex-direction: column;
+    }
+
+    .newsletter button {
+        width: 100%;
+    }
+
+    .achievement-pill {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .chef-portrait {
+        width: 180px;
+        height: 180px;
+    }
+
+    .chef-initials {
+        font-size: 3rem;
+    }
+
+    .chef-bio p {
+        font-size: 1rem;
+    }
+
+    .tab-btn {
+        min-width: 100px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .nav-logo a {
+        font-size: 1.25rem;
+    }
+
+    .transport-option {
+        padding: var(--space-sm);
+        gap: var(--space-sm);
+    }
+
+    .transport-icon i {
+        font-size: 1.25rem;
+    }
+
+    .transport-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== FIXES: Button Icon Animations ===== */
+.btn i, .btn-outline i, .btn-primary i, .btn-subscribe i {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 1.1em;
+}
+
+.btn:hover i, .btn-outline:hover i, .btn-primary:hover i, .btn-subscribe:hover i {
+    transform: translateX(5px);
+}
+
+.btn-subscribe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-subscribe i {
+    margin-left: 0;
+}

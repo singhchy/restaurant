@@ -7,9 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./js/script.js">
+    <link rel="stylesheet" href="./css/fixes.css">
+    <script src="./js/script.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -105,19 +106,19 @@
         <div class="container">
             <div class="experience-grid">
                 <div class="experience-card">
-                    <div class="experience-icon">🕯️</div>
+                    <div class="experience-icon"><i class="ri-fire-line"></i></div>
                     <h3 class="experience-title">THE AMBIANCE</h3>
                     <p class="experience-desc">Intimate candlelit spaces designed for connection and quiet luxury.</p>
                 </div>
                 
                 <div class="experience-card">
-                    <div class="experience-icon">🍷</div>
+                    <div class="experience-icon"><i class="ri-goblet-line"></i></div>
                     <h3 class="experience-title">THE CELLAR</h3>
                     <p class="experience-desc">Over 200 curated wines from France, Italy, and beyond — paired by our sommelier.</p>
                 </div>
                 
                 <div class="experience-card">
-                    <div class="experience-icon">👨‍🍳</div>
+                    <div class="experience-icon"><i class="ri-restaurant-line"></i></div>
                     <h3 class="experience-title">THE CRAFT</h3>
                     <p class="experience-desc">Each plate is a composition — seasonal, precise, and alive with flavor.</p>
                 </div>
@@ -311,8 +312,8 @@
                     </div>
                     
                     <div class="chef-achievements">
-                        <div class="achievement-pill">🏆 Best Chef — Kathmandu Food Awards 2023</div>
-                        <div class="achievement-pill">⭐ Featured in Asia's 50 Best Restaurants</div>
+                        <div class="achievement-pill"><i class="ri-trophy-line"></i> Best Chef — Kathmandu Food Awards 2023</div>
+                        <div class="achievement-pill"><i class="ri-star-line"></i> Featured in Asia's 50 Best Restaurants</div>
                     </div>
                 </div>
                 
@@ -333,29 +334,37 @@
             <h2 class="section-title">A Feast for the Eyes</h2>
             
             <div class="gallery-grid">
-                <div class="gallery-card">
+                <div class="gallery-item">
+                    <i class="ri-knife-line"></i>
                     <div class="gallery-label">Wagyu Tenderloin</div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-item">
+                    <i class="ri-goblet-fill"></i>
                     <div class="gallery-label">The Wine Cellar</div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-item">
+                    <i class="ri-restaurant-2-line"></i>
                     <div class="gallery-label">Chef's Table</div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-item">
+                    <i class="ri-store-3-line"></i>
                     <div class="gallery-label">The Dining Room</div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-item">
+                    <i class="ri-cake-3-line"></i>
                     <div class="gallery-label">Dessert Cart</div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-item">
+                    <i class="ri-vip-crown-line"></i>
                     <div class="gallery-label">Private Dining</div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-item">
+                    <i class="ri-sun-line"></i>
                     <div class="gallery-label">Sunday Brunch</div>
                 </div>
-                <div class="gallery-card">
-                    <div class="gallery-label">Bar & Lounge</div>
+                <div class="gallery-item">
+                    <i class="ri-drinks-2-line"></i>
+                    <div class="gallery-label">Bar &amp; Lounge</div>
                 </div>
             </div>
         </div>
@@ -370,26 +379,26 @@
             
             <div class="private-grid">
                 <div class="private-card">
-                    <div class="private-icon">💍</div>
-                    <h3 class="private-title">Romantic Evenings</h3>
-                    <p class="private-desc">Personalized menus, florals, and candlelit ambiance for two.</p>
+                    <i class="ri-heart-2-line"></i>
+                    <h3>Romantic Evenings</h3>
+                    <p>Personalized menus, florals, and candlelit ambiance for two.</p>
                 </div>
                 
                 <div class="private-card">
-                    <div class="private-icon">🎂</div>
-                    <h3 class="private-title">Celebrations</h3>
-                    <p class="private-desc">Birthday, anniversary, and milestone events with custom cakes and décor.</p>
+                    <i class="ri-cake-2-line"></i>
+                    <h3>Celebrations</h3>
+                    <p>Birthday, anniversary, and milestone events with custom cakes and décor.</p>
                 </div>
                 
                 <div class="private-card">
-                    <div class="private-icon">💼</div>
-                    <h3 class="private-title">Corporate Dining</h3>
-                    <p class="private-desc">Sophisticated settings for business dinners and client entertainment.</p>
+                    <i class="ri-briefcase-4-line"></i>
+                    <h3>Corporate Dining</h3>
+                    <p>Sophisticated settings for business dinners and client entertainment.</p>
                 </div>
             </div>
             
             <div class="private-cta">
-                <a href="#contact" class="btn btn-primary">Enquire About Private Dining →</a>
+                <a href="#contact" class="btn btn-primary">Enquire About Private Dining <i class="ri-arrow-right-line"></i></a>
             </div>
         </div>
     </section>
@@ -581,15 +590,15 @@
                     
                     <div class="transport-options">
                         <div class="transport-option">
-                            <span class="transport-icon">🚗</span>
+                            <span class="transport-icon"><i class="ri-roadster-line"></i></span>
                             <span class="transport-text">Valet Parking</span>
                         </div>
                         <div class="transport-option">
-                            <span class="transport-icon">🚕</span>
+                            <span class="transport-icon"><i class="ri-taxi-line"></i></span>
                             <span class="transport-text">Taxi Drop-off</span>
                         </div>
                         <div class="transport-option">
-                            <span class="transport-icon">🚶</span>
+                            <span class="transport-icon"><i class="ri-walk-line"></i></span>
                             <span class="transport-text">Walking from Thamel (5 min)</span>
                         </div>
                     </div>
@@ -598,10 +607,10 @@
                 <div class="location-map">
                     <div class="map-placeholder">
                         <div class="map-pin">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="ri-map-pin-2-fill"></i>
                         </div>
                         <div class="map-link">
-                            <a href="#" class="btn btn-outline">View on Google Maps →</a>
+                            <a href="#" class="btn btn-outline">View on Google Maps <i class="ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
@@ -635,11 +644,10 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3 class="footer-column-title">Visit</h3>
-                    <a href="#reservations">Reservations</a>
-                    <a href="#contact">Location</a>
-                    <a href="#reservations">Opening Hours</a>
-                    <a href="#contact">Contact</a>
+                    <h3 class="footer-column-title">Contact Us</h3>
+                    <a href="tel:+9779860213414"><i class="ri-phone-fill" style="margin-right: 8px;"></i>+977 9860213414</a>
+                    <a href="mailto:singhchy@gmail.com"><i class="ri-mail-fill" style="margin-right: 8px;"></i>singhchy@gmail.com</a>
+                    <a href="#contact"><i class="ri-map-pin-fill" style="margin-right: 8px;"></i>Location</a>
                 </div>
                 
                 <div class="footer-column">
@@ -649,7 +657,7 @@
                     <a href="#">TripAdvisor</a>
                     <div class="newsletter">
                         <input type="email" placeholder="Your email">
-                        <button type="submit">→</button>
+                        <button type="submit" aria-label="Subscribe" class="btn-subscribe"><i class="ri-arrow-right-line"></i></button>
                     </div>
                 </div>
             </div>
@@ -663,9 +671,9 @@
                 </div>
                 
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    <a href="#"><i class="ri-instagram-line"></i></a>
+                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                    <a href="#"><i class="ri-map-pin-line"></i></a>
                 </div>
             </div>
         </div>

@@ -166,7 +166,7 @@
             }
         });
         
-        // Scroll-triggered animations
+        // Scroll-triggered animations - IntersectionObserver
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -181,11 +181,6 @@
             });
         }, observerOptions);
         
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-        
         // Menu Tab Switcher
         const menuTabs = document.getElementById('menuTabs');
         if (menuTabs) {
@@ -194,14 +189,9 @@
             
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    // Remove active class from all buttons and contents
                     tabButtons.forEach(btn => btn.classList.remove('active'));
                     tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Add active class to clicked button
                     button.classList.add('active');
-                    
-                    // Show corresponding content
                     const tabId = button.getAttribute('data-tab');
                     const tabContent = document.getElementById(tabId);
                     if (tabContent) {
@@ -217,36 +207,19 @@
         let currentSlide = 0;
         
         function showSlide(index) {
-            // Hide all slides
-            testimonialSlides.forEach(slide => {
-                slide.classList.remove('active');
-            });
-            
-            // Remove active from all dots
-            carouselDots.forEach(dot => {
-                dot.classList.remove('active');
-            });
-            
-            // Show selected slide and activate corresponding dot
+            testimonialSlides.forEach(slide => slide.classList.remove('active'));
+            carouselDots.forEach(dot => dot.classList.remove('active'));
             testimonialSlides[index].classList.add('active');
             carouselDots[index].classList.add('active');
             currentSlide = index;
         }
         
-        // Initialize carousel dots
         if (carouselDots.length > 0) {
             carouselDots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    showSlide(index);
-                });
+                dot.addEventListener('click', () => showSlide(index));
             });
-            
-            // Auto-advance slides every 5 seconds
             setInterval(() => {
-                let nextSlide = currentSlide + 1;
-                if (nextSlide >= testimonialSlides.length) {
-                    nextSlide = 0;
-                }
+                let nextSlide = (currentSlide + 1) % testimonialSlides.length;
                 showSlide(nextSlide);
             }, 5000);
         }
@@ -256,252 +229,119 @@
         if (bookingForm) {
             bookingForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
-                // Get form values
                 const name = document.getElementById('fullName').value.trim();
                 const email = document.getElementById('email').value.trim();
                 const phone = document.getElementById('phone').value.trim();
                 const date = document.getElementById('date').value;
                 const time = document.getElementById('time').value;
                 const guests = document.getElementById('guests').value;
-                const requests = document.getElementById('requests').value.trim();
                 
-                // Validation flags
                 let isValid = true;
                 let errorMessage = '';
                 
-                // Name validation
-                if (!name) {
-                    isValid = false;
-                    errorMessage += '• Please enter your name.\n';
-                }
+                if (!name) { isValid = false; errorMessage += '• Please enter your name.\n'; }
                 
-                // Email validation
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!email) {
-                    isValid = false;
-                    errorMessage += '• Please enter your email address.\n';
-                } else if (!emailRegex.test(email)) {
-                    isValid = false;
-                    errorMessage += '• Please enter a valid email address.\n';
-                }
+                if (!email) { isValid = false; errorMessage += '• Please enter your email.\n'; }
+                else if (!emailRegex.test(email)) { isValid = false; errorMessage += '• Invalid email.\n'; }
                 
-                // Phone validation (basic)
-                if (!phone) {
-                    isValid = false;
-                    errorMessage += '• Please enter your phone number.\n';
-                } else if (phone.replace(/\D/g, '').length < 10) {
-                    isValid = false;
-                    errorMessage += '• Please enter a valid phone number.\n';
-                }
+                if (!phone) { isValid = false; errorMessage += '• Please enter your phone.\n'; }
+                else if (phone.replace(/\D/g, '').length < 10) { isValid = false; errorMessage += '• Invalid phone.\n'; }
                 
-                // Date validation
-                if (!date) {
-                    isValid = false;
-                    errorMessage += '• Please select a date.\n';
-                } else {
+                if (!date) { isValid = false; errorMessage += '• Please select a date.\n'; }
+                else {
                     const selectedDate = new Date(date);
-                    const today = new Date();
-                    today.setHours(0, 0, 0, 0);
-                    
-                    if (selectedDate < today) {
-                        isValid = false;
-                        errorMessage += '• Please select a future date.\n';
-                    }
+                    const today = new Date(); today.setHours(0,0,0,0);
+                    if (selectedDate < today) { isValid = false; errorMessage += '• Select a future date.\n'; }
                 }
                 
-                // Time validation
-                if (!time) {
-                    isValid = false;
-                    errorMessage += '• Please select a time.\n';
-                }
-                
-                // Guests validation
-                if (!guests || parseInt(guests) < 1 || parseInt(guests) > 20) {
-                    isValid = false;
-                    errorMessage += '• Please select 1-20 guests.\n';
-                }
+                if (!time) { isValid = false; errorMessage += '• Please select a time.\n'; }
+                if (!guests) { isValid = false; errorMessage += '• Please select guests.\n'; }
                 
                 if (isValid) {
-                    // Show success message
                     const successMessage = document.createElement('div');
                     successMessage.className = 'form-success';
                     successMessage.innerHTML = `
-                        <div style="background: rgba(76, 175, 80, 0.1); border: 1px solid #4CAF50; border-radius: 8px; padding: 20px; margin-top: 20px;">
-                            <h3 style="color: #4CAF50; margin-bottom: 10px;">Reservation Submitted Successfully!</h3>
-                            <p style="color: var(--color-text); margin-bottom: 5px;"><strong>Name:</strong> ${name}</p>
-                            <p style="color: var(--color-text); margin-bottom: 5px;"><strong>Date:</strong> ${date} at ${time}</p>
-                            <p style="color: var(--color-text); margin-bottom: 5px;"><strong>Guests:</strong> ${guests}</p>
-                            <p style="color: var(--color-text); margin-bottom: 5px;"><strong>Confirmation:</strong> We'll send a confirmation to ${email} within 24 hours.</p>
+                        <div style="background:rgba(76,175,80,0.1);border:1px solid #4CAF50;border-radius:8px;padding:20px;margin-top:20px;">
+                            <h3 style="color:#4CAF50;margin-bottom:10px;">Reservation Submitted!</h3>
+                            <p style="color:var(--color-text);margin-bottom:5px;"><strong>Name:</strong> ${name}</p>
+                            <p style="color:var(--color-text);margin-bottom:5px;"><strong>Date:</strong> ${date} at ${time}</p>
+                            <p style="color:var(--color-text);margin-bottom:5px;"><strong>Guests:</strong> ${guests}</p>
+                            <p style="color:var(--color-text);"><strong>Confirmation:</strong> We'll email ${email} within 24 hours.</p>
                         </div>
                     `;
-                    
-                    // Insert after form
                     bookingForm.parentNode.insertBefore(successMessage, bookingForm.nextSibling);
-                    
-                    // Reset form
                     bookingForm.reset();
-                    
-                    // Scroll to success message
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    
-                    // Remove success message after 10 seconds
-                    setTimeout(() => {
-                        successMessage.remove();
-                    }, 10000);
+                    setTimeout(() => successMessage.remove(), 10000);
                 } else {
-                    // Show error message
-                    alert('Please fix the following errors:\n\n' + errorMessage);
+                    alert('Please fix:\n\n' + errorMessage);
                 }
             });
             
-            // Add real-time validation feedback
             const formInputs = bookingForm.querySelectorAll('input, select, textarea');
             formInputs.forEach(input => {
-                input.addEventListener('blur', function() {
-                    validateField(this);
-                });
-                
-                input.addEventListener('input', function() {
-                    clearFieldError(this);
-                });
+                input.addEventListener('blur', function() { validateField(this); });
+                input.addEventListener('input', function() { clearFieldError(this); });
             });
             
             function validateField(field) {
-                const value = field.value.trim();
-                const fieldId = field.id;
-                
-                // Clear previous error
                 clearFieldError(field);
-                
-                // Skip validation if empty (required validation will catch on submit)
-                if (!value && field.required) {
-                    return;
-                }
-                
+                const value = field.value.trim();
+                if (!value && field.required) return;
                 let error = '';
-                
-                switch(fieldId) {
-                    case 'email':
-                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        if (value && !emailRegex.test(value)) {
-                            error = 'Please enter a valid email address';
-                        }
-                        break;
-                    case 'phone':
-                        if (value && value.replace(/\D/g, '').length < 10) {
-                            error = 'Please enter a valid phone number';
-                        }
-                        break;
-                    case 'date':
-                        if (value) {
-                            const selectedDate = new Date(value);
-                            const today = new Date();
-                            today.setHours(0, 0, 0, 0);
-                            
-                            if (selectedDate < today) {
-                                error = 'Please select a future date';
-                            }
-                        }
-                        break;
+                if (field.id === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) error = 'Invalid email';
+                if (field.id === 'phone' && value && value.replace(/\D/g, '').length < 10) error = 'Invalid phone';
+                if (field.id === 'date' && value) {
+                    const d = new Date(value); const t = new Date(); t.setHours(0,0,0,0);
+                    if (d < t) error = 'Select a future date';
                 }
-                
-                if (error) {
-                    showFieldError(field, error);
-                }
+                if (error) showFieldError(field, error);
             }
             
             function showFieldError(field, message) {
-                // Remove any existing error
                 clearFieldError(field);
-                
-                // Add error class to field
                 field.classList.add('error');
-                
-                // Create error message element
-                const errorElement = document.createElement('div');
-                errorElement.className = 'field-error';
-                errorElement.textContent = message;
-                errorElement.style.color = '#ff6b6b';
-                errorElement.style.fontSize = '0.85rem';
-                errorElement.style.marginTop = '5px';
-                
-                // Insert after field
-                field.parentNode.insertBefore(errorElement, field.nextSibling);
+                const el = document.createElement('div');
+                el.className = 'field-error';
+                el.textContent = message;
+                el.style.cssText = 'color:#ff6b6b;font-size:0.85rem;margin-top:5px;';
+                field.parentNode.insertBefore(el, field.nextSibling);
             }
             
             function clearFieldError(field) {
                 field.classList.remove('error');
-                
-                // Remove error message element
-                const errorElement = field.parentNode.querySelector('.field-error');
-                if (errorElement) {
-                    errorElement.remove();
-                }
+                const el = field.parentNode.querySelector('.field-error');
+                if (el) el.remove();
             }
         }
         
-        // Auto-add fade-in class to all sections (except hero)
+        // DOMContentLoaded: Add fade-in classes, then observe ALL of them
         document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.section:not(.hero)');
-            sections.forEach(section => {
-                // Check if already has fade-in class
-                if (!section.classList.contains('fade-in')) {
-                    section.classList.add('fade-in');
-                }
+            // Add fade-in to sections
+            document.querySelectorAll('.section:not(.hero)').forEach(s => {
+                if (!s.classList.contains('fade-in')) s.classList.add('fade-in');
             });
             
-            // Also add fade-in to signature experience cards
-            const experienceCards = document.querySelectorAll('.experience-card');
-            experienceCards.forEach(card => {
-                card.classList.add('fade-in');
+            // Add fade-in to cards/items
+            document.querySelectorAll('.experience-card, .menu-item, .private-card, .info-card, .transport-option').forEach(el => {
+                el.classList.add('fade-in');
             });
             
-            // Add fade-in to menu items
-            const menuItems = document.querySelectorAll('.menu-item');
-            menuItems.forEach(item => {
-                item.classList.add('fade-in');
-            });
-            
-            // Add fade-in to private dining cards
-            const privateCards = document.querySelectorAll('.private-card');
-            privateCards.forEach(card => {
-                card.classList.add('fade-in');
-            });
-            
-            // Add fade-in to testimonial slides
-            const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-            testimonialSlides.forEach(slide => {
-                slide.classList.add('fade-in');
-            });
-            
-            // Add fade-in to reservation info cards
-            const infoCards = document.querySelectorAll('.info-card');
-            infoCards.forEach(card => {
-                card.classList.add('fade-in');
-            });
-            
-            // Add fade-in to transport options
-            const transportOptions = document.querySelectorAll('.transport-option');
-            transportOptions.forEach(option => {
-                option.classList.add('fade-in');
+            // Now observe ALL fade-in elements (including those already in HTML)
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
             });
         });
         
-        // Add CSS for error states
+        // Error state styles
         const style = document.createElement('style');
         style.textContent = `
-            .form-group input.error,
-            .form-group select.error,
-            .form-group textarea.error {
-                border-color: #ff6b6b !important;
-                background: rgba(255, 107, 107, 0.05);
+            .form-group input.error, .form-group select.error, .form-group textarea.error {
+                border-color: #ff6b6b !important; background: rgba(255,107,107,0.05);
             }
-            
-            .form-group input.error:focus,
-            .form-group select.error:focus,
-            .form-group textarea.error:focus {
-                box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.1) !important;
+            .form-group input.error:focus, .form-group select.error:focus, .form-group textarea.error:focus {
+                box-shadow: 0 0 0 2px rgba(255,107,107,0.1) !important;
             }
         `;
         document.head.appendChild(style);
